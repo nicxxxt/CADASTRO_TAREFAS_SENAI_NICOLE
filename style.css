@@ -1,418 +1,395 @@
+/* ==============================
+TEMA CLARO (Padrão)
+============================== */
 :root {
---gradiente-fundo: linear-gradient(135deg, #a8edea, #fed6e3);
---fundo-cartao: #ffffff;
---fundo-tarefa: #f7fafc;
---cor-texto: #2d3748;
---cor-borda: #edf2f7;
---cor-primaria: #6c5ce7;
---cor-primaria-hover: #5b4bc4;
---cor-perigo: #ff7675;
---cor-concluido: #a0aec0;
-}
-
-/* ==============================
-TEMA ESCURO
-============================== */
-
-body.tema-escuro {
---gradiente-fundo: linear-gradient(135deg, #2d3748, #1a202c);
---fundo-cartao: #1a202c;
---fundo-tarefa: #2d3748;
---cor-texto: #f7fafc;
---cor-borda: #4a5568;
---cor-primaria: #8b7cf6;
---cor-primaria-hover: #7567e8;
---cor-concluido: #a0aec0;
-}
-
-/* ==============================
-CONFIGURAÇÕES GERAIS
-============================== */
-
-* {
+    /* Degradê Modo Claro: Roxo pro Branco */
+    --gradiente-fundo: linear-gradient(135deg, #6c5ce7, #ffffff);
+    --fundo-cartao: #ffffff;
+    --fundo-tarefa: #f7fafc;
+    --cor-texto: #2d3748;
+    --cor-borda: #edf2f7;
+    --cor-primaria: #6c5ce7;
+    --cor-primaria-hover: #5b4bc4;
+    --cor-perigo: #ff7675;
+    --cor-concluido: #a0aec0;
+    --cor-estrela: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* ==============================
+  TEMA ESCURO
+  ============================== */
+  body.tema-escuro {
+    /* Degradê Modo Escuro: Cinza Claro pro Preto */
+    --gradiente-fundo: linear-gradient(135deg, #a0aec0, #000000);
+    --fundo-cartao: #1a202c;
+    --fundo-tarefa: #2d3748;
+    --cor-texto: #f7fafc;
+    --cor-borda: #4a5568;
+    --cor-primaria: #8b7cf6;
+    --cor-primaria-hover: #7567e8;
+    --cor-concluido: #a0aec0;
+    --cor-estrela: rgba(255, 255, 255, 0.95);
+  }
+  
+  /* ==============================
+  CONFIGURAÇÕES GERAIS
+  ============================== */
+  
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-body {
-min-height: 100vh;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
-padding: 20px;
-
-background: var(--gradiente-fundo);
-
-transition: background 0.3s ease;
-
-
-}
-
-/* ==============================
-CARTÃO DA APLICAÇÃO
-============================== */
-
-.cartao-aplicacao {
-width: 100%;
-max-width: 450px;
-
-padding: 30px;
-
-background: var(--fundo-cartao);
-color: var(--cor-texto);
-
-border-radius: 20px;
-
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-
-transition:
-    background 0.3s ease,
-    color 0.3s ease;
-
-
-}
-
-/* ==============================
-CABEÇALHO
-============================== */
-
-.cabecalho-aplicacao {
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-margin-bottom: 25px;
-
-
-}
-
-.cabecalho-aplicacao h1 {
-font-size: 1.5rem;
-}
-
-/* ==============================
-BOTÃO LUA / SOL
-============================== */
-
-.botao-icone {
-width: 40px;
-height: 40px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-border: none;
-border-radius: 50%;
-
-background: transparent;
-
-color: var(--cor-texto);
-
-font-size: 1.2rem;
-
-cursor: pointer;
-
-transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-
-
-}
-
-.botao-icone:hover {
-background: var(--cor-borda);
-transform: rotate(20deg);
-}
-
-/* ==============================
-ÁREA DE ADICIONAR
-============================== */
-
-.caixa-entrada {
-display: flex;
-gap: 10px;
-
-margin-bottom: 20px;
-
-
-}
-
-/* ==============================
-CAMPO DE TEXTO
-============================== */
-
-#campo-tarefa {
-flex: 1;
-
-min-width: 0;
-
-padding: 12px 15px;
-
-border: 2px solid var(--cor-borda);
-border-radius: 12px;
-
-outline: none;
-
-background: transparent;
-color: var(--cor-texto);
-
-font-size: 0.95rem;
-
-transition: border 0.2s ease;
-
-
-}
-
-#campo-tarefa::placeholder {
-color: #a0aec0;
-}
-
-#campo-tarefa:focus {
-border-color: var(--cor-primaria);
-}
-
-/* ==============================
-BOTÃO ADICIONAR
-============================== */
-
-.botao-principal {
-padding: 12px 18px;
-
-border: none;
-border-radius: 12px;
-
-background: var(--cor-primaria);
-color: white;
-
-font-weight: 600;
-
-cursor: pointer;
-
-white-space: nowrap;
-
-transition:
-    background 0.2s ease,
-    transform 0.2s ease;
-
-
-}
-
-.botao-principal:hover {
-background: var(--cor-primaria-hover);
-
-transform: translateY(-2px);
-
-
-}
-
-.botao-principal:active {
-transform: translateY(0);
-}
-
-/* ==============================
-LISTA DE TAREFAS
-============================== */
-
-.lista-tarefas {
-list-style: none;
-
-width: 100%;
-
-max-height: 350px;
-
-overflow-y: auto;
-
-
-}
-
-/* ==============================
-CADA TAREFA
-============================== */
-
-.tarefa {
-display: flex;
-
-align-items: center;
-justify-content: space-between;
-
-gap: 10px;
-
-width: 100%;
-
-padding: 12px;
-
-margin-bottom: 10px;
-
-background: var(--fundo-tarefa);
-
-border: 1px solid var(--cor-borda);
-
-border-radius: 10px;
-
-animation: aparecer 0.3s ease;
-
-transition:
-    background 0.3s ease,
-    border 0.3s ease;
-
-
-}
-
-/* Texto da tarefa */
-
-.texto-tarefa {
-flex: 1;
-
-color: var(--cor-texto);
-
-word-break: break-word;
-
-
-}
-
-/* ==============================
-TAREFA CONCLUÍDA
-============================== */
-
-.tarefa.concluida .texto-tarefa {
-color: var(--cor-concluido);
-
-text-decoration: line-through;
-
-
-}
-
-/* ==============================
-BOTÕES DA TAREFA
-============================== */
-
-.acoes-tarefa {
-display: flex;
-gap: 6px;
-}
-
-/* Botão concluir */
-
-.botao-concluir,
-.botao-excluir {
-width: 32px;
-height: 32px;
-
-display: flex;
-align-items: center;
-justify-content: center;
-
-border: none;
-border-radius: 8px;
-
-background: transparent;
-
-color: var(--cor-texto);
-
-cursor: pointer;
-
-transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-
-}
-
-/* Hover do botão concluir */
-
-.botao-concluir:hover {
-background: #55efc4;
-color: white;
-}
-
-/* Tarefa concluída */
-
-.tarefa.concluida .botao-concluir {
-background: #55efc4;
-color: white;
-}
-
-/* Botão excluir */
-
-.botao-excluir:hover {
-background: var(--cor-perigo);
-color: white;
-}
-
-/* ==============================
-RODAPÉ / CONTADOR
-============================== */
-
-.rodape-aplicacao {
-margin-top: 15px;
-
-text-align: center;
-
-font-size: 0.85rem;
-
-color: var(--cor-concluido);
-
-
-}
-
-/* ==============================
-ANIMAÇÃO
-============================== */
-
-@keyframes aparecer {
-from {
-opacity: 0;
-transform: translateY(10px);
-}
-
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-}
-
-/* ==============================
-BARRA DE ROLAGEM
-============================== */
-
-.lista-tarefas::-webkit-scrollbar {
-width: 6px;
-}
-
-.lista-tarefas::-webkit-scrollbar-track {
-background: transparent;
-}
-
-.lista-tarefas::-webkit-scrollbar-thumb {
-background: var(--cor-borda);
-border-radius: 10px;
-}
-
-/* ==============================
-CELULAR
-============================== */
-
-@media (max-width: 500px) {
-
-.cartao-aplicacao {
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-}
-
-.caixa-entrada {
-    flex-direction: column;
-}
-
-.botao-principal {
+    background: var(--gradiente-fundo);
+    transition: background 0.4s ease;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* ==============================
+  ESTRELINHAS CAINDO AO FUNDO
+  ============================== */
+  
+  .estrelas-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .estrelas-fundo::before,
+  .estrelas-fundo::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -10%;
+    width: 120%;
+    height: 200%;
+    background-repeat: repeat;
+  }
+  
+  .estrelas-fundo::before {
+    background-image: 
+      radial-gradient(2px 2px at 40px 80px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(3px 3px at 150px 250px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 280px 120px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(2.5px 2.5px at 420px 380px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 580px 190px, var(--cor-estrela), rgba(0,0,0,0));
+    background-size: 450px 450px;
+    animation: chuvaEstrelas 7s linear infinite;
+    opacity: 0.8;
+  }
+  
+  .estrelas-fundo::after {
+    background-image: 
+      radial-gradient(1.5px 1.5px at 90px 40px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 210px 310px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(1.5px 1.5px at 350px 180px, var(--cor-estrela), rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 490px 80px, var(--cor-estrela), rgba(0,0,0,0));
+    background-size: 350px 350px;
+    animation: chuvaEstrelas 4.5s linear infinite;
+    opacity: 0.6;
+  }
+  
+  @keyframes chuvaEstrelas {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(50vh) translateX(25px);
+    }
+  }
+  
+  /* ==============================
+  CARTÃO DA APLICAÇÃO
+  ============================== */
+  
+  .cartao-aplicacao {
+    position: relative;
+    z-index: 1;
     width: 100%;
-}
-
-
-}
+    max-width: 450px;
+    padding: 30px;
+    background: var(--fundo-cartao);
+    color: var(--cor-texto);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  /* ==============================
+  CABEÇALHO
+  ============================== */
+  
+  .cabecalho-aplicacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  
+  .cabecalho-aplicacao h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* ==============================
+  BOTÃO LUA / SOL
+  ============================== */
+  
+  .botao-icone {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--cor-texto);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .botao-icone:hover {
+    background: var(--cor-borda);
+    transform: rotate(20deg);
+  }
+  
+  /* ==============================
+  ÁREA DE ADICIONAR
+  ============================== */
+  
+  .caixa-entrada {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #campo-tarefa {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 12px;
+    outline: none;
+    background: transparent;
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+    transition: border 0.2s ease;
+  }
+  
+  #campo-tarefa::placeholder {
+    color: #a0aec0;
+  }
+  
+  #campo-tarefa:focus {
+    border-color: var(--cor-primaria);
+  }
+  
+  .botao-principal {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 12px;
+    background: var(--cor-primaria);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .botao-principal:hover {
+    background: var(--cor-primaria-hover);
+    transform: translateY(-2px);
+  }
+  
+  .botao-principal:active {
+    transform: translateY(0);
+  }
+  
+  /* ==============================
+  LISTA DE TAREFAS
+  ============================== */
+  
+  .lista-tarefas {
+    list-style: none;
+    width: 100%;
+    max-height: 380px;
+    overflow-y: auto;
+  }
+  
+  /* ==============================
+  CADA TAREFA
+  ============================== */
+  
+  .tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: var(--fundo-tarefa);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    animation: aparecer 0.3s ease;
+    transition: background 0.3s ease, border 0.3s ease;
+  }
+  
+  /* ITEM DA CRIADORA DENTRO DO QUADRADO DE TAREFAS */
+  .tarefa-criadora {
+    border: 1.5px solid var(--cor-primaria);
+    background: rgba(108, 92, 231, 0.05);
+  }
+  
+  body.tema-escuro .tarefa-criadora {
+    background: rgba(139, 124, 246, 0.1);
+  }
+  
+  .foto-criadora-lista {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--cor-primaria);
+    flex-shrink: 0;
+  }
+  
+  .info-criadora-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .info-criadora-texto strong {
+    font-size: 0.95rem;
+    color: var(--cor-texto);
+  }
+  
+  .info-criadora-texto span {
+    font-size: 0.78rem;
+    color: var(--cor-concluido);
+  }
+  
+  /* Texto das tarefas comuns */
+  .texto-tarefa {
+    flex: 1;
+    color: var(--cor-texto);
+    word-break: break-word;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+  }
+  
+  /* ==============================
+  TAREFA CONCLUÍDA (RISCADO)
+  ============================== */
+  
+  .tarefa.concluida .texto-tarefa {
+    color: var(--cor-concluido) !important;
+    text-decoration: line-through !important;
+  }
+  
+  /* ==============================
+  BOTÕES DA TAREFA
+  ============================== */
+  
+  .acoes-tarefa {
+    display: flex;
+    gap: 6px;
+  }
+  
+  .botao-concluir,
+  .botao-excluir {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--cor-texto);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  
+  .botao-concluir:hover {
+    background: #55efc4;
+    color: white;
+  }
+  
+  .tarefa.concluida .botao-concluir {
+    background: #55efc4;
+    color: white;
+  }
+  
+  .botao-excluir:hover {
+    background: var(--cor-perigo);
+    color: white;
+  }
+  
+  /* ==============================
+  RODAPÉ / CONTADOR
+  ============================== */
+  
+  .rodape-aplicacao {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--cor-concluido);
+  }
+  
+  /* ==============================
+  ANIMAÇÃO E SCROLLBAR
+  ============================== */
+  
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .lista-tarefas::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .lista-tarefas::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .lista-tarefas::-webkit-scrollbar-thumb {
+    background: var(--cor-borda);
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 500px) {
+    .cartao-aplicacao {
+      padding: 20px;
+    }
+  
+    .caixa-entrada {
+      flex-direction: column;
+    }
+  
+    .botao-principal {
+      width: 100%;
+    }
+  }
